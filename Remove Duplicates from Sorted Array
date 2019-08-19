@@ -1,0 +1,36 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        
+        /*int removedElements =0, n = nums.length;
+        
+        for(int i=1;i<n -removedElements;i++){
+            int element = nums[i-1], j=i;
+            while(j<n-removedElements && element==nums[j]){
+                ++j;
+            }
+            removedElements += j-i;
+            //System.out.println(i+" "+j+" "+removedElements);
+            for(int k=i;k<n-removedElements;k++){
+                nums[k] = nums[j++];
+            }
+            
+        }
+        
+        return n- removedElements;*/
+        
+        int n = nums.length;
+        
+        if(n==0) return 0;
+        if(n==1) return 1;
+        
+        int i=0;
+        
+        for(int j=i+1;j<n;j++){
+            if(nums[j]!=nums[i]){
+                ++i;
+                nums[i] = nums[j]; 
+            }
+        }
+        return i+1;
+    }
+}
