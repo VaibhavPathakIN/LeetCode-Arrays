@@ -1,0 +1,42 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        /*HashSet<Integer> hs = new HashSet<>();
+        
+        int firstIdx =0, secondIdx =0;
+        
+        for(int i=0;i<nums.length;i++){
+            if(!hs.contains(nums[i])){
+                hs.add(target - nums[i]);
+            }else{
+                secondIdx = i;
+            }
+        }
+        
+        for(int i=0;i<secondIdx;i++){
+            if(nums[i]==target - nums[secondIdx]){
+                firstIdx = i;
+            }
+        }
+        
+        int result[] = new int[2];
+        result[0] = firstIdx;
+        result[1] = secondIdx;
+        
+        return result;*/
+        
+        HashMap<Integer, Integer> hm = new HashMap<>();
+             
+        int []result = new int[2];
+        
+        for(int i=0;i<nums.length;i++){
+            if(hm.get(target - nums[i])!=null){
+                result[0] = hm.get(target - nums[i]);
+                result[1] = i;
+            }
+            
+            hm.put(nums[i],i);
+        }
+        return result;
+    }
+}
