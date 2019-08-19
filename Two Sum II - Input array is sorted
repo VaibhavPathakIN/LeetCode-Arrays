@@ -1,0 +1,31 @@
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        
+        int [] result = new int[2];
+        
+        int n = numbers.length;
+        
+        int leftIdx=0, rightIdx = n-1;
+        
+        while(leftIdx<rightIdx){
+            
+            int sum = numbers[leftIdx]+numbers[rightIdx];
+            
+            if(sum==target){
+                result[0]= leftIdx+1;
+                result[1]= rightIdx+1;
+                break;
+            }
+            
+            if(sum<target){
+                leftIdx++;
+            }else{
+                rightIdx--;
+            }
+            
+        }
+        
+        return result;
+        
+    }
+}
