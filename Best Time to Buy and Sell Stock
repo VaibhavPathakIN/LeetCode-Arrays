@@ -1,0 +1,27 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        int maxPrice = Integer.MIN_VALUE, n = prices.length;
+        
+        if(n==0)
+            return 0;
+        
+        int maxPriceArr[] = new int[n];
+        
+        for(int i=n-1;i>=0;i--){
+            maxPriceArr[i] = Math.max(prices[i], maxPrice);
+            if(maxPrice<prices[i]){
+                maxPrice = prices[i];
+            }
+        }
+        
+        maxPrice =Integer.MIN_VALUE;
+        
+        for(int i=0;i<n;i++){
+            maxPrice = Math.max(maxPriceArr[i]-prices[i],maxPrice);
+        }
+        
+        return maxPrice;
+        
+    }
+}
