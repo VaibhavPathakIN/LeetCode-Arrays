@@ -1,0 +1,28 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        
+        int n= nums.length, count =0;
+        int rotationCount = k%n;
+        
+        
+        for(int start = 0; count<n;start++){
+            int i=start;
+            int newElement = nums[i];
+        
+            do{
+                int newIdx = (i+rotationCount)%n;
+
+                int temp = nums[newIdx];
+                nums[newIdx] = newElement;
+                newElement = temp;
+
+                i= newIdx;
+                count++;
+            
+            }while(i!=start);
+            
+        }
+        
+
+    }
+}
