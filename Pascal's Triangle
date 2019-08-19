@@ -1,0 +1,26 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> temp = null;
+        
+        for(int i=1;i<=numRows;i++){
+            temp = new ArrayList<>();
+            
+            if(i==1){
+                temp.add(1);
+                result.add(temp);
+                continue;
+            }
+            
+            for(int j=1;j<=i;j++){
+                int x = j-2>=0?result.get(i-2).get(j-2):0;
+                int y = j-1<result.get(i-2).size()?result.get(i-2).get(j-1):0;
+                temp.add(x+y);
+            }
+            
+            result.add(temp);
+        }
+        return result;
+    }
+}
